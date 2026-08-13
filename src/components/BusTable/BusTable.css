@@ -1,0 +1,258 @@
+/* ==========================
+   BUS TABLE SECTION
+========================== */
+
+.bus-table{
+
+    width:90%;
+    margin:80px auto;
+    margin-top:-10px;
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    padding:40px;
+
+    box-shadow:
+    0 15px 40px rgba(15,23,42,.08);
+
+}
+
+/* ==========================
+   HEADING
+========================== */
+
+.bus-table h2{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#1E3A8A;
+
+    margin-bottom:10px;
+
+}
+
+.result-count{
+
+    color:#6B7280;
+
+    font-size:16px;
+
+    margin-bottom:30px;
+
+}
+
+.result-count strong{
+
+    color:#2563EB;
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+.bus-table table{
+
+    width:100%;
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.05);
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.bus-table thead th{
+
+    background:linear-gradient(
+    135deg,
+    #2563EB,
+    #1D4ED8);
+
+    color:white;
+
+    padding:20px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+    text-align:center;
+
+}
+
+.bus-table thead th:first-child{
+
+    border-top-left-radius:18px;
+
+}
+
+.bus-table thead th:last-child{
+
+    border-top-right-radius:18px;
+
+}
+
+/* ==========================
+   BODY
+========================== */
+
+.bus-table td{
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#374151;
+
+    font-size:15px;
+
+    border-bottom:1px solid #eef2f7;
+
+}
+
+/* Alternate Row */
+
+.bus-table tbody tr:nth-child(even){
+
+    background:#FAFCFF;
+
+}
+
+/* Hover */
+
+.bus-table tbody tr{
+
+    transition:.35s ease;
+
+}
+
+.bus-table tbody tr:hover{
+
+    background:#EEF5FF;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 18px rgba(37,99,235,.08);
+
+}
+
+/* Remove Last Border */
+
+.bus-table tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* First Column */
+
+.bus-table td:first-child{
+
+    font-weight:600;
+
+    color:#1E3A8A;
+
+}
+
+/* Destination */
+
+.bus-table td:nth-child(3){
+
+    font-weight:600;
+
+    color:#2563EB;
+
+}
+
+/* Departure Time */
+
+.bus-table td:last-child{
+
+    font-weight:600;
+
+    color:#059669;
+
+}
+
+/* ==========================
+   NO BUS FOUND
+========================== */
+
+.no-bus{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+    180deg,
+    #F8FBFF,
+    #EEF5FF);
+
+}
+
+.bus-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+.no-bus h3{
+
+    color:#1E3A8A;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.no-bus p{
+
+    color:#6B7280;
+
+    font-size:16px;
+
+}
+.time-badge{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+    font-weight:600;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+}

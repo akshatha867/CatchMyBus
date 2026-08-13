@@ -1,0 +1,468 @@
+/* ==========================
+   DASHBOARD MAIN
+========================== */
+
+.main-content {
+    min-height: 100vh;
+    background: #f5f8ff;
+    padding: 40px 45px;
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+.dashboard-header {
+    margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 8px;
+    color: #172b5f;
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    margin: 0;
+    color: #6b7a99;
+    font-size: 17px;
+}
+
+
+/* ==========================
+   TOP STAT CARDS
+========================== */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+
+.card {
+    position: relative;
+    overflow: hidden;
+
+    background: white;
+
+    padding: 26px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(30, 64, 120, 0.08);
+
+    border-top: 5px solid #2463d4;
+
+    transition: 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 16px 35px rgba(30, 64, 120, 0.13);
+}
+
+
+/* Decorative circle */
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: -35px;
+    top: -45px;
+
+    background: #edf3ff;
+
+    border-radius: 50%;
+}
+
+
+/* Different card colors */
+
+.bus-card {
+    border-top-color: #2463d4;
+}
+
+.route-card {
+    border-top-color: #38bdf8;
+}
+
+.visitor-card {
+    border-top-color: #8b5cf6;
+}
+
+.update-card {
+    border-top-color: #10b981;
+}
+
+
+/* Card title */
+
+.card-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    position: relative;
+    z-index: 2;
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.card-title:first-letter {
+    font-size: 20px;
+}
+
+
+/* Number */
+
+.card h2 {
+    position: relative;
+    z-index: 2;
+
+    margin: 18px 0 5px;
+
+    color: #2457d6;
+
+    font-size: 48px;
+
+    font-weight: 700;
+}
+
+
+/* Description */
+
+.card p {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+}
+
+
+/* ==========================
+   LOWER DASHBOARD GRID
+========================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================
+   DASHBOARD PANELS
+========================== */
+
+.dashboard-panel {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 28px;
+
+    box-shadow: 0 10px 30px rgba(30, 64, 120, 0.07);
+
+    transition: 0.3s ease;
+}
+
+
+.dashboard-panel:hover {
+    box-shadow: 0 15px 35px rgba(30, 64, 120, 0.11);
+}
+
+
+/* Panel heading */
+
+.panel-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #edf1f7;
+}
+
+
+.panel-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef5ff;
+
+    border-radius: 17px;
+
+    font-size: 27px;
+}
+
+
+.panel-header h2 {
+    margin: 0 0 4px;
+
+    color: #172b5f;
+
+    font-size: 24px;
+}
+
+
+.panel-header p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* ==========================
+   SYSTEM STATUS
+========================== */
+
+.status-list {
+    margin-top: 10px;
+}
+
+
+.status-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 17px 5px;
+
+    border-bottom: 1px solid #f0f2f6;
+
+    color: #475569;
+
+    font-size: 16px;
+}
+
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+
+.status-item strong {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.status-active {
+    color: #16a34a !important;
+}
+
+
+/* ==========================
+   RECENT BUS UPDATES
+========================== */
+
+.recent-buses {
+    margin-top: 8px;
+}
+
+
+.recent-bus {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 5px;
+
+    border-bottom: 1px solid #f0f2f6;
+
+    transition: 0.25s ease;
+}
+
+
+.recent-bus:last-child {
+    border-bottom: none;
+}
+
+
+.recent-bus:hover {
+    transform: translateX(5px);
+}
+
+
+.bus-small-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef5ff;
+
+    border-radius: 14px;
+
+    font-size: 22px;
+}
+
+
+.bus-info h3 {
+    margin: 0 0 4px;
+
+    color: #263b68;
+
+    font-size: 16px;
+}
+
+
+.bus-info p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* ==========================
+   ADMIN NOTICE
+========================== */
+
+.admin-notice {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #eef5ff,
+        #f8fbff
+    );
+
+    border: 1px solid #dce8fb;
+
+    border-radius: 22px;
+
+    padding: 24px 28px;
+
+    box-shadow: 0 8px 25px rgba(30, 64, 120, 0.05);
+}
+
+
+.notice-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    box-shadow: 0 5px 15px rgba(30, 64, 120, 0.08);
+}
+
+
+.admin-notice h2 {
+    margin: 0 0 5px;
+
+    color: #1d3d78;
+
+    font-size: 20px;
+}
+
+
+.admin-notice p {
+    margin: 0;
+
+    color: #71809b;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1100px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .main-content {
+        padding: 25px 20px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 30px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-notice {
+        align-items: flex-start;
+    }
+
+}
