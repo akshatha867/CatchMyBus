@@ -1,0 +1,74 @@
+.editbus-container{
+    padding:40px;
+}
+
+.editbus-container h1{
+    color:#1565C0;
+    margin-bottom:30px;
+}
+
+.editbus-form{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    max-width:700px;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#444;
+}
+
+.form-group input,
+.form-group select{
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#1565C0;
+}
+
+.time-row{
+    display:flex;
+    gap:20px;
+}
+
+.time-row .form-group{
+    flex:1;
+}
+
+button{
+    padding:15px;
+    background:#1565C0;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+}
+
+button:hover{
+    background:#0D47A1;
+}
+.form-group input[readonly]:focus{
+    border:1px solid #ddd;
+    outline:none;
+}

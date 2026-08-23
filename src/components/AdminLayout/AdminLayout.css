@@ -1,0 +1,359 @@
+/* ==============================
+   ADMIN LAYOUT
+============================== */
+
+.admin-layout {
+    display: flex;
+
+    min-height: 100vh;
+
+    background: #f4f7fc;
+
+    font-family: "Poppins", "Inter", sans-serif;
+}
+
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.sidebar {
+
+    width: 270px;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 25px 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b2857 0%,
+            #123f85 50%,
+            #185bb7 100%
+        );
+
+    color: white;
+
+    position: sticky;
+
+    top: 0;
+
+    align-self: flex-start;
+
+    box-shadow:
+        8px 0 30px rgba(15, 47, 99, 0.14);
+
+}
+
+
+/* ==============================
+   BRAND AREA
+============================== */
+
+.sidebar h2 {
+
+    margin: 0;
+
+    padding: 14px 10px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    letter-spacing: .2px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, .14);
+
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.sidebar ul {
+
+    list-style: none;
+
+    padding: 24px 0 0;
+
+    margin: 0;
+
+}
+
+.sidebar li {
+
+    margin-bottom: 7px;
+
+}
+
+
+/* ==============================
+   LINKS
+============================== */
+
+.sidebar a {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 16px;
+
+    text-decoration: none;
+
+    color: rgba(255, 255, 255, .78);
+
+    border-radius: 13px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+/* Hover */
+
+.sidebar a:hover {
+
+    background:
+        rgba(255, 255, 255, .10);
+
+    color: white;
+
+    transform: translateX(4px);
+
+}
+
+
+/* ==============================
+   ACTIVE PAGE
+============================== */
+
+.sidebar a.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, .20),
+            rgba(255, 255, 255, .08)
+        );
+
+    color: white;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .08),
+        0 7px 18px rgba(0, 0, 0, .08);
+
+}
+
+
+/* Active indicator */
+
+.sidebar a.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 4px;
+
+    height: 25px;
+
+    background: white;
+
+    border-radius: 0 5px 5px 0;
+
+}
+
+
+/* ==============================
+   LOGOUT
+============================== */
+
+.sidebar li:last-child {
+
+    margin-top: 32px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, .14);
+
+}
+
+
+.sidebar li:last-child a {
+
+    color:
+        rgba(255, 255, 255, .75);
+
+}
+
+
+.sidebar li:last-child a:hover {
+
+    background:
+        rgba(239, 68, 68, .17);
+
+    color: white;
+
+}
+
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.admin-content {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 35px 45px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        width: 220px;
+
+    }
+
+    .admin-content {
+
+        padding: 30px;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-layout {
+
+        flex-direction: column;
+
+    }
+
+
+    .sidebar {
+
+        width: 100%;
+
+        min-height: auto;
+
+        position: relative;
+
+        padding: 16px;
+
+    }
+
+
+    .sidebar h2 {
+
+        padding-bottom: 18px;
+
+    }
+
+
+    .sidebar ul {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        padding-top: 18px;
+
+    }
+
+
+    .sidebar li {
+
+        margin: 0;
+
+    }
+
+
+    .sidebar li:last-child {
+
+        margin-top: 0;
+
+        padding-top: 0;
+
+        border-top: none;
+
+    }
+
+
+    .sidebar a {
+
+        padding: 10px 14px;
+
+        font-size: 14px;
+
+    }
+
+
+    .sidebar a.active::before {
+
+        display: none;
+
+    }
+
+
+    .admin-content {
+
+        padding: 25px 18px;
+
+    }
+
+}

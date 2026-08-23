@@ -1,0 +1,307 @@
+/* ==============================
+   ADD BUS PAGE
+================================ */
+
+.addbus-container {
+    padding: 10px 5px 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+   PAGE HEADER
+================================ */
+
+.addbus-container h1 {
+    font-size: 34px;
+    color: #172554;
+    margin: 0 0 8px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.addbus-container::before {
+    content: "Enter the details below to add a new bus to the system";
+    display: block;
+
+    color: #64748b;
+    font-size: 16px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   FORM CARD
+================================ */
+
+.addbus-form {
+    background: rgba(255, 255, 255, 0.96);
+
+    max-width: 850px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e7edf6;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.07),
+        0 3px 10px rgba(15, 23, 42, 0.04);
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px 25px;
+
+    position: relative;
+}
+
+
+/* Small blue accent at top */
+
+.addbus-form::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 35px;
+
+    width: 70px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #1565c0,
+        #42a5f5
+    );
+
+    border-radius: 0 0 10px 10px;
+}
+
+
+/* ==============================
+   FORM GROUP
+================================ */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==============================
+   LABEL
+================================ */
+
+.form-group label {
+    font-size: 14px;
+
+    font-weight: 650;
+
+    color: #334155;
+
+    margin-bottom: 9px;
+
+    letter-spacing: 0.1px;
+}
+
+
+/* ==============================
+   INPUT
+================================ */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 15px;
+
+    border: 1px solid #dbe3ee;
+
+    border-radius: 11px;
+
+    background: #f9fbff;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #1976d2;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(25, 118, 210, 0.10);
+}
+
+
+/* ==============================
+   SOURCE FIELD
+================================ */
+
+input[readonly] {
+
+    background: #eef4fb;
+
+    color: #475569;
+
+    font-weight: 600;
+
+    cursor: not-allowed;
+
+    border-color: #dbe5f0;
+}
+
+
+/* ==============================
+   DEPARTURE TIME
+================================ */
+
+.time-row {
+    display: contents;
+}
+
+.time-row .form-group {
+    width: 100%;
+}
+
+
+/* ==============================
+   SAVE BUTTON
+================================ */
+
+.addbus-form button {
+
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #1565c0,
+        #1976d2
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 650;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(21, 101, 192, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+/* Button hover */
+
+.addbus-form button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(21, 101, 192, 0.25);
+
+    filter: brightness(1.04);
+}
+
+
+/* Button click */
+
+.addbus-form button:active {
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 800px) {
+
+    .addbus-container {
+        padding: 10px 0 40px;
+    }
+
+    .addbus-container h1 {
+        font-size: 28px;
+    }
+
+    .addbus-form {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+
+        border-radius: 16px;
+    }
+
+    .addbus-form button {
+        grid-column: auto;
+    }
+
+    .addbus-form::before {
+        left: 25px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .addbus-container h1 {
+        font-size: 25px;
+    }
+
+    .addbus-container::before {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .addbus-form {
+        padding: 20px;
+    }
+
+}

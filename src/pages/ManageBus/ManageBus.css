@@ -1,0 +1,268 @@
+/* ==============================
+   MANAGE BUS PAGE
+================================ */
+
+.managebus-container {
+    padding: 10px 5px 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   PAGE HEADER
+================================ */
+
+.managebus-container h1 {
+    font-size: 34px;
+    color: #172554;
+    margin: 0 0 8px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.managebus-container::before {
+    content: "View, edit and manage all available bus information";
+    display: block;
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 28px;
+}
+
+
+/* ==============================
+   TABLE CARD
+================================ */
+
+.bus-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.07),
+        0 2px 8px rgba(15, 23, 42, 0.04);
+
+    border: 1px solid #e8eef7;
+}
+
+
+/* ==============================
+   TABLE HEADER
+================================ */
+
+.bus-table thead {
+    background: linear-gradient(
+        135deg,
+        #1565c0,
+        #1976d2
+    );
+}
+
+.bus-table th {
+    padding: 18px 16px;
+    color: white;
+    font-size: 14px;
+    font-weight: 650;
+    text-align: left;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   TABLE BODY
+================================ */
+
+.bus-table td {
+    padding: 19px 16px;
+    color: #475569;
+    font-size: 14px;
+    border-bottom: 1px solid #edf1f6;
+    vertical-align: middle;
+}
+
+
+/* Remove border from last row */
+
+.bus-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Alternate background */
+
+.bus-table tbody tr:nth-child(even) {
+    background: #fbfdff;
+}
+
+
+/* ==============================
+   ROW HOVER
+================================ */
+
+.bus-table tbody tr {
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+.bus-table tbody tr:hover {
+    background: #f1f7ff;
+}
+
+
+/* ==============================
+   BUS NAME
+================================ */
+
+.bus-table td:first-child {
+    color: #172554;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   SOURCE / DESTINATION
+================================ */
+
+.bus-table td:nth-child(2),
+.bus-table td:nth-child(3) {
+    font-weight: 550;
+    color: #334155;
+}
+
+
+/* ==============================
+   VIA ROUTE
+================================ */
+
+.bus-table td:nth-child(4) {
+    color: #64748b;
+}
+
+
+/* ==============================
+   DEPARTURE TIME
+================================ */
+
+.bus-table td:nth-child(5) {
+    color: #1565c0;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   ACTIONS
+================================ */
+
+.bus-table td:last-child {
+    white-space: nowrap;
+}
+
+
+/* Edit Button */
+
+.edit-btn {
+    border: none;
+    background: #eaf3ff;
+    color: #1565c0;
+
+    padding: 9px 14px;
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    margin-right: 8px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+.edit-btn:hover {
+    background: #d8eaff;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(21, 101, 192, 0.15);
+}
+
+
+/* Delete Button */
+
+.delete-btn {
+    border: none;
+    background: #fff1f2;
+    color: #dc2626;
+
+    padding: 9px 14px;
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+.delete-btn:hover {
+    background: #ffe4e6;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(220, 38, 38, 0.12);
+}
+
+
+/* ==============================
+   EMPTY TABLE
+================================ */
+
+.bus-table tbody:empty::after {
+    content: "No buses available";
+    display: block;
+    padding: 40px;
+    text-align: center;
+    color: #64748b;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    .managebus-container {
+        overflow-x: auto;
+    }
+
+    .bus-table {
+        min-width: 850px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .managebus-container h1 {
+        font-size: 28px;
+    }
+
+    .managebus-container::before {
+        font-size: 14px;
+    }
+
+}
