@@ -38,3 +38,70 @@ html{
     scroll-behavior:smooth;
 
 }
+/* =========================
+   HOME DESTINATIONS
+========================= */
+
+.home-destinations {
+  width: 90%;
+  margin: 60px auto 100px;
+  text-align: center;
+}
+
+.home-destinations h2 {
+  font-size: 32px;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.home-destinations > p {
+  color: #64748b;
+  margin-bottom: 35px;
+}
+
+.destination-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.destination-button {
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: white;
+  color: #1e3a8a;
+  border: 2px solid #dbeafe;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.destination-button:hover {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  transform: translateY(-3px);
+}
+/* =========================
+   SELECTED DESTINATION
+========================= */
+
+.selected-destination {
+  width: 90%;
+  margin: 50px auto 20px;
+  text-align: center;
+}
+
+.selected-destination h2 {
+  font-size: 32px;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.selected-destination p {
+  color: #64748b;
+  font-size: 16px;
+}
