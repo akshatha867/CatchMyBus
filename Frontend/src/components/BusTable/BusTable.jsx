@@ -26,9 +26,7 @@ function BusTable({ buses }) {
             <tr>
 
               <th>Bus Name</th>
-              <th>Source</th>
               <th>Destination</th>
-              <th>Via Route</th>
               <th>Departure Time</th>
 
             </tr>
@@ -41,13 +39,11 @@ function BusTable({ buses }) {
 
               <tr key={index}>
 
-                <td>{bus.busName}</td>
-                <td>{bus.source}</td>
-                <td>{bus.destination}</td>
-                <td>{bus.viaRoute}</td>
+                <td>{bus.bus_name}</td>
+                <td>{bus.destination_name}</td>
                 <td>
                 <span className="time-badge">
-                  {bus.departureTime}
+                  {bus.departure_time}
                 </span>
               </td>
 

@@ -34,7 +34,7 @@ function HomePage() {
 
 
   // Search function
-  const handleSearch = (destination) => {
+  const handleSearch = async (destination) => {
 
     // If nothing is selected
     if (destination === "") {
@@ -43,17 +43,21 @@ function HomePage() {
       return;
     }
 
-    // Find buses for selected destination
-    const result = buses.filter(
-      (bus) =>
-        bus.destination.toLowerCase() === destination.toLowerCase()
-    );
+    try {
+      // Call your backend search route
+      const response = await fetch(
+        `http://localhost:5000/search?destination=${destination}`
+      );
+      const result = await response.json();
 
-    // Store results
-    setFilteredBuses(result);
+      // Store results
+      setFilteredBuses(result);
 
-    // Show result table
-    setHasSearched(true);
+      // Show result table
+      setHasSearched(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 
