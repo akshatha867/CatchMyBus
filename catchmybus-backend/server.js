@@ -41,6 +41,9 @@ app.get('/schedules', (req, res) => {
     }
   });
 });
+
+
+
 app.get('/search', (req, res) => {
   const destination = req.query.destination;
 
@@ -205,6 +208,25 @@ app.put('/admin/buses/:id', verifyToken, (req, res) => {
 
       res.json({ message: 'Bus and schedule updated successfully' });
     });
+  });
+});
+
+app.get('/admin/buses', verifyToken, (req, res) => {
+  const sql = `
+    SELECT schedules.id AS schedule_id, buses.id AS bus_id, buses.bus_name, 
+           destinations.destination_name, schedules.departure_time
+    FROM schedules
+    JOIN buses ON schedules.bus_id = buses.id
+    JOIN destinations ON schedules.destination_id = destinations.id
+    ORDER BY buses.bus_name ASC
+  `;
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error fetching buses');
+    }
+    res.json(results);
   });
 });
 
