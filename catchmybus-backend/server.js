@@ -1,6 +1,7 @@
 const express = require('express');
 const cors=require('cors');
 const db = require('./config/db');
+const verifyToken=require('./middleware/auth');
 
 const app = express();
 
@@ -120,6 +121,9 @@ app.post('/admin/login', (req, res) => {
   });
 });
 
+app.get('/admin/dashboard', verifyToken, (req, res) => {
+  res.json({ message: 'Welcome to the admin dashboard!', admin: req.admin });
+});
 
 
 app.listen(5000, () => {
