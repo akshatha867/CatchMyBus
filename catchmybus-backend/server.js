@@ -180,6 +180,34 @@ app.delete('/admin/buses/:id', verifyToken, (req, res) => {
   });
 });
 
+// edit bus by admin
+app.put('/admin/buses/:id', verifyToken, (req, res) => {
+  const busId = req.params.id;
+  const { bus_name, service_type, schedule_id, destination_id, departure_time } = req.body;
+
+  const updateBusSql = 'UPDATE buses SET bus_name = ?, service_type = ? WHERE id = ?';
+  db.query(updateBusSql, [bus_name, service_type, busId], (err, busResult) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error updating bus');
+    }
+
+    if (busResult.affectedRows === 0) {
+      return res.status(404).send('Bus not found');
+    }
+
+    const updateScheduleSql = 'UPDATE schedules SET destination_id = ?, departure_time = ? WHERE id = ? AND bus_id = ?';
+    db.query(updateScheduleSql, [destination_id, departure_time, schedule_id, busId], (err, scheduleResult) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send('Error updating schedule');
+      }
+
+      res.json({ message: 'Bus and schedule updated successfully' });
+    });
+  });
+});
+
 app.listen(5000, () => {
   console.log('Server running on port 5000');
 });
