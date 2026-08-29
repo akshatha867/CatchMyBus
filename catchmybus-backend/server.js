@@ -126,6 +126,60 @@ app.get('/admin/dashboard', verifyToken, (req, res) => {
 });
 
 
+// Adding bus by admin
+app.post('/admin/buses', verifyToken, (req, res) => {
+  const { bus_name, service_type, destination_id, departure_time } = req.body;
+
+  const busSql = 'INSERT INTO buses (bus_name, service_type) VALUES (?, ?)';
+  db.query(busSql, [bus_name, service_type], (err, busResult) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error adding bus');
+    }
+
+    const newBusId = busResult.insertId;
+
+    const scheduleSql = 'INSERT INTO schedules (bus_id, destination_id, departure_time) VALUES (?, ?, ?)';
+    db.query(scheduleSql, [newBusId, destination_id, departure_time], (err, scheduleResult) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send('Error adding schedule');
+      }
+
+      res.json({ message: 'Bus and schedule added successfully', busId: newBusId });
+    });
+  });
+});
+
+// delete bus by admin
+app.delete('/admin/buses/:id', verifyToken, (req, res) => {
+  const busId = req.params.id;
+
+  // First delete all schedules linked to this bus
+  const deleteSchedulesSql = 'DELETE FROM schedules WHERE bus_id = ?';
+  db.query(deleteSchedulesSql, [busId], (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error deleting schedules');
+    }
+
+    // Now delete the bus itself
+    const deleteBusSql = 'DELETE FROM buses WHERE id = ?';
+    db.query(deleteBusSql, [busId], (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send('Error deleting bus');
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).send('Bus not found');
+      }
+
+      res.json({ message: 'Bus and its schedules deleted successfully' });
+    });
+  });
+});
+
 app.listen(5000, () => {
   console.log('Server running on port 5000');
 });
