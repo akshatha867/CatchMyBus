@@ -230,6 +230,32 @@ app.get('/admin/buses', verifyToken, (req, res) => {
   });
 });
 
+// get one schedule (for edit bus page)
+app.get('/admin/schedules/:scheduleId', verifyToken, (req, res) => {
+  const scheduleId = req.params.scheduleId;
+
+  const sql = `
+    SELECT buses.id AS bus_id, buses.bus_name, buses.service_type,
+           schedules.id AS schedule_id, schedules.destination_id, schedules.departure_time
+    FROM schedules
+    JOIN buses ON buses.id = schedules.bus_id
+    WHERE schedules.id = ?
+  `;
+
+  db.query(sql, [scheduleId], (err, results) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error fetching schedule');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send('Schedule not found');
+    }
+
+    res.json(results[0]);
+  });
+});
+
 app.listen(5000, () => {
   console.log('Server running on port 5000');
 });
