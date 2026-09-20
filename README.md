@@ -2,7 +2,7 @@
 
 A full-stack bus schedule and route-finder web app built for local commuters in the Belthangady/Moodbidire region — helping users find upcoming buses to their destination, and giving admins a dashboard to manage routes, schedules, and buses.
 
-> Built as a team project (3 members) — I was the backend developer, responsible for the API, database design, authentication, and admin functionality.
+> Built as a team project (4 members) — I was the backend developer, responsible for the API, authentication, and admin functionality.
 
 ---
 
