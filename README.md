@@ -126,11 +126,17 @@ The app will be available at `http://localhost:5173` (frontend) with the API run
 
 ## Screenshots
 
-*(Coming soon)*
+**Homepage**
+![Homepage](./screenshots/homepage.png)
 
-| Homepage | Search Results | Admin Dashboard |
-|----------|-----------------|-------------------|
-| _placeholder_ | _placeholder_ | _placeholder_ |
+**Search Results**
+![Search Results](./screenshots/search-results.png)
+
+**Admin Dashboard**
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+
+**Add Bus**
+![Add Bus](./screenshots/add-bus.png)
 
 ---
 
@@ -146,8 +152,6 @@ The app will be available at `http://localhost:5173` (frontend) with the API run
 ## Roadmap
 
 - [ ] Deploy (Vercel for frontend, Render/Railway for backend + MySQL)
-- [ ] Add screenshots
-- [ ] Minor bug: sidebar active-link highlight in admin panel
 
 ---
 
