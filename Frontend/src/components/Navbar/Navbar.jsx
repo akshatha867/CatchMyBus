@@ -35,11 +35,12 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+      <div className="navbar-inner">
 
       {/* Logo */}
       <div className="logo-section">
         <img src={logo} alt="ALVA'S Logo" className="logo" />
-        <h2>Catch My Bus</h2>
+        <h2>CatchMyBus</h2>
       </div>
 
       {/* Navigation */}
@@ -49,9 +50,7 @@ function Navbar() {
           <Link to="/">Home</Link>
         </li>
 
-        <li>
-          <Link to="/destinations">Destinations</Link>
-        </li>
+        
 
         <li>
           <Link to="/about">About</Link>
@@ -68,7 +67,7 @@ function Navbar() {
         <p>{date}</p>
         <h2>{currentTime}</h2>
       </div>
-
+      </div>
     </nav>
   );
 }

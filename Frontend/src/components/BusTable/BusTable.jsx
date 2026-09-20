@@ -1,7 +1,23 @@
 import "./BusTable.css";
+import NotifyButton from "../Notification/NotifyBus";
 
 // BusTable receives the filtered buses from App.jsx
 function BusTable({ buses }) {
+
+  // Converts "13:00:00" -> "1:00 PM"
+  const formatTime = (time) => {
+    if (!time) return "";
+
+    const [hourStr, minuteStr] = time.split(":");
+    let hour = parseInt(hourStr, 10);
+    const minute = minuteStr;
+
+    const ampm = hour >= 12 ? "PM" : "AM";
+    hour = hour % 12;
+    if (hour === 0) hour = 12;
+
+    return `${hour}:${minute} ${ampm}`;
+  };
 
   return (
 
@@ -28,6 +44,7 @@ function BusTable({ buses }) {
               <th>Bus Name</th>
               <th>Destination</th>
               <th>Departure Time</th>
+              <th>Notify</th>
 
             </tr>
 
@@ -37,14 +54,20 @@ function BusTable({ buses }) {
 
             {buses.map((bus, index) => (
 
-              <tr key={index}>
+              <tr key={bus.schedule_id}>
 
                 <td>{bus.bus_name}</td>
                 <td>{bus.destination_name}</td>
                 <td>
                 <span className="time-badge">
-                  {bus.departure_time}
+                  {formatTime(bus.departure_time)}
                 </span>
+              </td>
+              <td>
+                <NotifyButton
+                departureTime={bus.departure_time}
+                busName={bus.bus_name}
+                />
               </td>
 
               </tr>

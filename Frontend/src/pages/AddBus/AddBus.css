@@ -61,7 +61,7 @@
 }
 
 
-/* Small blue accent at top */
+/* Accent bar at top */
 
 .addbus-form::before {
     content: "";
@@ -73,11 +73,7 @@
     width: 70px;
     height: 4px;
 
-    background: linear-gradient(
-        90deg,
-        #1565c0,
-        #42a5f5
-    );
+    background:#1E3358;
 
     border-radius: 0 0 10px 10px;
 }
@@ -192,6 +188,46 @@ input[readonly] {
     width: 100%;
 }
 
+.time-picker {
+    display: flex;
+    gap: 10px;
+}
+
+.time-picker select {
+    flex: 1;
+    padding: 14px 10px;
+    border: 1px solid #dbe3ee;
+    border-radius: 11px;
+    background: #f9fbff;
+    color: #1e293b;
+    font-size: 15px;
+    outline: none;
+    text-align: center;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.time-picker select:focus {
+    border-color: #1976d2;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.10);
+}
+
+
+/* ==============================
+   ERROR MESSAGE
+================================ */
+
+.error-message {
+    grid-column: 1 / -1;
+    color: #dc2626;
+    font-size: 16px;
+    font-weight: 600;
+    margin: -5px 0 5px;
+}
+
 
 /* ==============================
    SAVE BUTTON
@@ -211,11 +247,7 @@ input[readonly] {
 
     border-radius: 11px;
 
-    background: linear-gradient(
-        135deg,
-        #1565c0,
-        #1976d2
-    );
+    background:navy;
 
     color: white;
 
@@ -228,7 +260,7 @@ input[readonly] {
     cursor: pointer;
 
     box-shadow:
-        0 8px 18px rgba(21, 101, 192, 0.20);
+        0 8px 18px rgba(210, 105, 30, 0.25);
 
     transition:
         transform 0.2s ease,
@@ -244,7 +276,7 @@ input[readonly] {
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 25px rgba(21, 101, 192, 0.25);
+        0 12px 25px rgba(210, 105, 30, 0.32);
 
     filter: brightness(1.04);
 }

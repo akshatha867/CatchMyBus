@@ -1,0 +1,13 @@
+:root {
+  --color-cream: #F3EEE3;
+  --color-navy: #1E3358;
+  --color-navy-muted: #A9B7CC;
+  --color-orange: #D2691E;
+  --color-orange-dark: #A6521C;
+  --color-text-muted: #8A8267;
+  --color-white: #FFFFFF;
+  --color-border: #E4DCCB;
+}
+body{
+    background: var(--color-cream);
+}

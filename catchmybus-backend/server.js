@@ -48,7 +48,7 @@ app.get('/search', (req, res) => {
   const destination = req.query.destination;
 
   const sql = `
-    SELECT buses.bus_name, destinations.destination_name, schedules.departure_time
+    SELECT schedules.id AS schedule_id, buses.bus_name, destinations.destination_name, schedules.departure_time
     FROM schedules
     JOIN buses ON schedules.bus_id = buses.id
     JOIN destinations ON schedules.destination_id = destinations.id
@@ -131,7 +131,7 @@ app.get('/admin/dashboard', verifyToken, (req, res) => {
 
 // Adding bus by admin
 app.post('/admin/buses', verifyToken, (req, res) => {
-  const { bus_name, service_type, destination_id, departure_time } = req.body;
+  const { bus_name, service_type, destination_id, departure_times } = req.body;
 
   const busSql = 'INSERT INTO buses (bus_name, service_type) VALUES (?, ?)';
   db.query(busSql, [bus_name, service_type], (err, busResult) => {
@@ -142,14 +142,16 @@ app.post('/admin/buses', verifyToken, (req, res) => {
 
     const newBusId = busResult.insertId;
 
-    const scheduleSql = 'INSERT INTO schedules (bus_id, destination_id, departure_time) VALUES (?, ?, ?)';
-    db.query(scheduleSql, [newBusId, destination_id, departure_time], (err, scheduleResult) => {
+    const scheduleSql = 'INSERT INTO schedules (bus_id, destination_id, departure_time) VALUES ?';
+    const values = departure_times.map((time) => [newBusId, destination_id, time]);
+
+    db.query(scheduleSql, [values], (err, scheduleResult) => {
       if (err) {
         console.log(err);
         return res.status(500).send('Error adding schedule');
       }
 
-      res.json({ message: 'Bus and schedule added successfully', busId: newBusId });
+      res.json({ message: 'Bus and schedules added successfully', busId: newBusId });
     });
   });
 });
@@ -180,6 +182,25 @@ app.delete('/admin/buses/:id', verifyToken, (req, res) => {
 
       res.json({ message: 'Bus and its schedules deleted successfully' });
     });
+  });
+});
+
+// delete a single schedule (one departure time) by admin
+app.delete('/admin/schedules/:id', verifyToken, (req, res) => {
+  const scheduleId = req.params.id;
+
+  const sql = 'DELETE FROM schedules WHERE id = ?';
+  db.query(sql, [scheduleId], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error deleting schedule');
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).send('Schedule not found');
+    }
+
+    res.json({ message: 'Schedule deleted successfully' });
   });
 });
 
@@ -253,6 +274,35 @@ app.get('/admin/schedules/:scheduleId', verifyToken, (req, res) => {
     }
 
     res.json(results[0]);
+  });
+});
+
+// GET current visit count
+app.get('/visits', (req, res) => {
+  db.query('SELECT total_count FROM site_visits WHERE id = 1', (err, results) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error fetching visit count');
+    }
+    res.json({ total_count: results[0].total_count });
+  });
+});
+
+// Increment visit count by 1
+app.post('/visits/increment', (req, res) => {
+  db.query('UPDATE site_visits SET total_count = total_count + 1 WHERE id = 1', (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Error updating visit count');
+    }
+
+    db.query('SELECT total_count FROM site_visits WHERE id = 1', (err, results) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send('Error fetching updated count');
+      }
+      res.json({ total_count: results[0].total_count });
+    });
   });
 });
 

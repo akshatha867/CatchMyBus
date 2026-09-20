@@ -1,0 +1,34 @@
+.notify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color:#1E3358; /* orange accent */
+  color: #F3EEE3; /* cream text */
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.notify-btn:hover {
+  background-color:#16263f; /* slightly darker orange on hover */
+}
+
+.notify-btn--active {
+  background-color: #1E3358; /* navy — confirms notification is set */
+  color: #F3EEE3;
+  cursor: default;
+}
+
+.notify-btn--disabled {
+  background-color: #d9d3c7; /* muted cream-gray */
+  color: #8a8378;
+  cursor: not-allowed;
+}
+
+.notify-btn:disabled {
+  opacity: 0.9;
+}

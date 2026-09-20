@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState,useRef,useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import BusTable from "./components/BusTable/BusTable";
@@ -9,7 +10,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import ChatBot from "./components/Chatbot/Chatbot";
 
-import Destinations from "./pages/Destinations/Destinations";
+
 
 import AdminLogin from "./pages/Login/Login";
 import AdminLayout from "./components/AdminLayout/AdminLayout";
@@ -31,8 +32,16 @@ function HomePage() {
 
   // Controls whether the result table is visible
   const [hasSearched, setHasSearched] = useState(false);
+   // Tracks which destination button was last clicked
+  const [selectedDestination, setSelectedDestination] = useState("");
+  const resultsRef = useRef(null);
 
-
+  useEffect(() => {
+    if (hasSearched && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [hasSearched, filteredBuses]);
+ 
   // Search function
   const handleSearch = async (destination) => {
 
@@ -42,6 +51,9 @@ function HomePage() {
       setHasSearched(false);
       return;
     }
+
+    // Remember which destination was clicked/searched
+    setSelectedDestination(destination);
 
     try {
       // Call your backend search route
@@ -65,45 +77,36 @@ function HomePage() {
     <>
       <Navbar />
 
-      {/* HERO + SEARCH */}
       <Hero onSearch={handleSearch} />
 
-
-      {/* ================= DESTINATIONS ================= */}
-
+      {/* ================= POPULAR DESTINATIONS ================= */}
       <section className="home-destinations">
-
         <h2>📍 Popular Destinations</h2>
-
-        <p>
-          Select a destination to find available buses
-        </p>
+        <p>Select a destination to find available buses</p>
 
         <div className="destination-list">
-
           {destinations.map((destination, index) => (
-
             <button
               key={index}
-              className="destination-button"
+              className={selectedDestination === destination ? "destination-button selected" : "destination-button"}
               onClick={() => handleSearch(destination)}
             >
               📍 {destination}
             </button>
-
           ))}
-
         </div>
-
       </section>
 
 
+      
+
       {/* ================= SEARCH RESULTS ================= */}
 
-      {hasSearched && (
-        <BusTable buses={filteredBuses} />
-      )}
-
+      <div ref={resultsRef}>
+        {hasSearched && (
+          <BusTable buses={filteredBuses} />
+        )}
+      </div>
 
       <Footer />
 
@@ -151,6 +154,9 @@ function ContactPage() {
 function App() {
 
   return (
+    <>
+    <ToastContainer position="top-center" autoClose={2000}/>
+  
     <Routes>
 
       {/* USER PAGES */}
@@ -160,10 +166,7 @@ function App() {
         element={<HomePage />}
       />
 
-      <Route
-        path="/destinations"
-        element={<Destinations />}
-      />
+      
 
       <Route
         path="/about"
@@ -207,13 +210,14 @@ function App() {
         />
 
         <Route
-          path="editbus"
+          path="editbus/:id"
           element={<EditBus />}
         />
 
       </Route>
 
     </Routes>
+      </>
   );
 }
 

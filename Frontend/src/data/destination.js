@@ -2,17 +2,29 @@
 // Later, these can come from the backend/database.
 
 const destinations = [
-  "Mangalore",
-  "Bangalore",
-  "Ujire",
-  "Dharmasthala",
-  "Mysore",
+  "Bhatkala",
+  "Hebri",
+  "Iruvail",
+  "Karkala",
+  "Kateel",
+  "Kollur",
+  "Kudla",
+  "Kundapura",
   "Moodbidri",
-  "Puttur",
-  "Madikeri",
-  "Manipal",
-  "Karkala"
+  "Mulki",
+  "Naravi",
+  "Saccharipete",
+  "Sagara",
+  "Shirlal",
+  "Shirtadi",
+  "Shirthady",
+  "Shivamogga",
+  "Udupi",
+  "Kolli",
+  "Uppingangady"
 ];
+
+
 
 // Export the array so it can be used in SearchBox.
 export default destinations;

@@ -4,7 +4,7 @@
 
 .main-content {
     min-height: 100vh;
-    background: #f5f8ff;
+    background: #F3EEE3;
     padding: 40px 45px;
 }
 
@@ -19,14 +19,15 @@
 
 .dashboard-header h1 {
     margin: 0 0 8px;
-    color: #172b5f;
+    color: #1E3358;
     font-size: 38px;
     font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .dashboard-header p {
     margin: 0;
-    color: #6b7a99;
+    color: #6B7A8F;
     font-size: 17px;
 }
 
@@ -51,11 +52,11 @@
 
     padding: 26px;
 
-    border-radius: 22px;
+    border-radius: 18px;
 
-    box-shadow: 0 10px 30px rgba(30, 64, 120, 0.08);
+    box-shadow: 0 10px 30px rgba(30, 51, 88, 0.08);
 
-    border-top: 5px solid #2463d4;
+    border-top: 5px solid #1E3358;
 
     transition: 0.3s ease;
 }
@@ -64,7 +65,7 @@
 .card:hover {
     transform: translateY(-5px);
 
-    box-shadow: 0 16px 35px rgba(30, 64, 120, 0.13);
+    box-shadow: 0 16px 35px rgba(30, 51, 88, 0.13);
 }
 
 
@@ -81,7 +82,7 @@
     right: -35px;
     top: -45px;
 
-    background: #edf3ff;
+    background: #FBF0E4;
 
     border-radius: 50%;
 }
@@ -90,19 +91,19 @@
 /* Different card colors */
 
 .bus-card {
-    border-top-color: #2463d4;
+    border-top-color: #1E3358;
 }
 
 .route-card {
-    border-top-color: #38bdf8;
+    border-top-color: #D2691E;
 }
 
 .visitor-card {
-    border-top-color: #8b5cf6;
+    border-top-color: #B8860B;
 }
 
 .update-card {
-    border-top-color: #10b981;
+    border-top-color: #4A7C59;
 }
 
 
@@ -118,16 +119,11 @@
     position: relative;
     z-index: 2;
 
-    color: #64748b;
+    color: #8A8371;
 
     font-size: 17px;
 
     font-weight: 600;
-}
-
-
-.card-title:first-letter {
-    font-size: 20px;
 }
 
 
@@ -139,7 +135,7 @@
 
     margin: 18px 0 5px;
 
-    color: #2457d6;
+    color: #1E3358;
 
     font-size: 48px;
 
@@ -155,7 +151,7 @@
 
     margin: 0;
 
-    color: #94a3b8;
+    color: #A79E8E;
 
     font-size: 15px;
 }
@@ -183,18 +179,18 @@
 .dashboard-panel {
     background: white;
 
-    border-radius: 22px;
+    border-radius: 18px;
 
     padding: 28px;
 
-    box-shadow: 0 10px 30px rgba(30, 64, 120, 0.07);
+    box-shadow: 0 10px 30px rgba(30, 51, 88, 0.07);
 
     transition: 0.3s ease;
 }
 
 
 .dashboard-panel:hover {
-    box-shadow: 0 15px 35px rgba(30, 64, 120, 0.11);
+    box-shadow: 0 15px 35px rgba(30, 51, 88, 0.11);
 }
 
 
@@ -209,7 +205,7 @@
 
     padding-bottom: 20px;
 
-    border-bottom: 1px solid #edf1f7;
+    border-bottom: 1px solid #EAE2D3;
 }
 
 
@@ -222,9 +218,9 @@
     align-items: center;
     justify-content: center;
 
-    background: #eef5ff;
+    background: #FBF0E4;
 
-    border-radius: 17px;
+    border-radius: 15px;
 
     font-size: 27px;
 }
@@ -233,16 +229,18 @@
 .panel-header h2 {
     margin: 0 0 4px;
 
-    color: #172b5f;
+    color: #1E3358;
 
     font-size: 24px;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
 .panel-header p {
     margin: 0;
 
-    color: #94a3b8;
+    color: #A79E8E;
 
     font-size: 14px;
 }
@@ -266,7 +264,7 @@
 
     padding: 17px 5px;
 
-    border-bottom: 1px solid #f0f2f6;
+    border-bottom: 1px solid #F3EEE3;
 
     color: #475569;
 
@@ -280,14 +278,14 @@
 
 
 .status-item strong {
-    color: #64748b;
+    color: #6B7A8F;
 
     font-size: 14px;
 }
 
 
 .status-active {
-    color: #16a34a !important;
+    color: #4A7C59 !important;
 }
 
 
@@ -309,7 +307,7 @@
 
     padding: 15px 5px;
 
-    border-bottom: 1px solid #f0f2f6;
+    border-bottom: 1px solid #F3EEE3;
 
     transition: 0.25s ease;
 }
@@ -334,9 +332,9 @@
     align-items: center;
     justify-content: center;
 
-    background: #eef5ff;
+    background: #FBF0E4;
 
-    border-radius: 14px;
+    border-radius: 13px;
 
     font-size: 22px;
 }
@@ -345,7 +343,7 @@
 .bus-info h3 {
     margin: 0 0 4px;
 
-    color: #263b68;
+    color: #1E3358;
 
     font-size: 16px;
 }
@@ -354,7 +352,7 @@
 .bus-info p {
     margin: 0;
 
-    color: #94a3b8;
+    color: #A79E8E;
 
     font-size: 14px;
 }
@@ -373,17 +371,17 @@
 
     background: linear-gradient(
         135deg,
-        #eef5ff,
-        #f8fbff
+        #FBF0E4,
+        #F8F4EA
     );
 
-    border: 1px solid #dce8fb;
+    border: 1px solid #EAE2D3;
 
-    border-radius: 22px;
+    border-radius: 18px;
 
     padding: 24px 28px;
 
-    box-shadow: 0 8px 25px rgba(30, 64, 120, 0.05);
+    box-shadow: 0 8px 25px rgba(30, 51, 88, 0.05);
 }
 
 
@@ -398,27 +396,29 @@
 
     background: white;
 
-    border-radius: 15px;
+    border-radius: 13px;
 
     font-size: 25px;
 
-    box-shadow: 0 5px 15px rgba(30, 64, 120, 0.08);
+    box-shadow: 0 5px 15px rgba(30, 51, 88, 0.08);
 }
 
 
 .admin-notice h2 {
     margin: 0 0 5px;
 
-    color: #1d3d78;
+    color: #1E3358;
 
     font-size: 20px;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
 .admin-notice p {
     margin: 0;
 
-    color: #71809b;
+    color: #6B7A8F;
 
     font-size: 15px;
 

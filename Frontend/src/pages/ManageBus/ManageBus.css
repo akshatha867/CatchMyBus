@@ -266,3 +266,43 @@
     }
 
 }
+
+.managebus-search {
+    margin-bottom: 20px;
+}
+
+.managebus-search input {
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    border: 1px solid #dbe3ee;
+    border-radius: 11px;
+    background: #f9fbff;
+    color: #1e293b;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.managebus-search input::placeholder {
+    color: #94a3b8;
+}
+
+.managebus-search input:focus {
+    border-color: #1E3358;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(30, 51, 88, 0.10);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.no-results {
+    text-align: center;
+    color: #64748b;
+    padding: 30px 0 0;
+    font-size: 15px;
+}

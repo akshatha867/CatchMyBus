@@ -17,11 +17,11 @@ function AdminLayout() {
           </li>
 
           <li>
-            <NavLink to="/admin/addbus">➕ Add Bus</NavLink>
+            <NavLink to="/admin/dashboard/addbus">➕ Add Bus</NavLink>
           </li>
 
           <li>
-            <NavLink to="/admin/managebus">🚌 Manage Buses</NavLink>
+            <NavLink to="/admin/dashboard/managebus">🚌 Manage Buses</NavLink>
           </li>
 
           <li>
